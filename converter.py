@@ -17,7 +17,7 @@ from pathlib import Path
 from typing import List, Optional
 
 from image_processor import load_images, validate_image
-from pdf_generator import generate_pdf
+from pdf_generator import generate_pdf, PAGE_SIZES
 from utils import (
     ConverterError,
     ensure_not_input,
@@ -58,6 +58,13 @@ def build_parser() -> argparse.ArgumentParser:
         "-d", "--output-dir",
         metavar="DIR",
         help="directory to save the PDF in (created if missing; default: current directory)",
+    )
+    parser.add_argument(
+        "--page-size",
+        choices=list(PAGE_SIZES.keys()),
+        default="A4",
+        metavar="SIZE",
+        help="PDF page size: A4, A3, LETTER or LEGAL (default: A4)",
     )
     parser.add_argument(
         "--overwrite",
@@ -109,6 +116,7 @@ def convert(
     output_name: Optional[str] = None,
     output_dir: Optional[str] = None,
     overwrite: bool = False,
+    page_size: str = "A4",
 ) -> Path:
     """Run the full conversion pipeline and return the created PDF path.
 
@@ -130,7 +138,7 @@ def convert(
     pages = []
     for arg in image_args:
         pages.extend(load_images(arg))
-    generate_pdf(pages, output_path)
+    generate_pdf(pages, output_path, page_size)
     logger.debug("Created %s from %d image file(s)", output_path, len(inputs))
     return output_path
 
@@ -142,7 +150,13 @@ def main(argv: Optional[List[str]] = None) -> int:
     configure_logging(args.verbose)
 
     try:
-        output = convert(args.images, args.output, args.output_dir, args.overwrite)
+        output = convert(
+    args.images,
+    args.output,
+    args.output_dir,
+    args.overwrite,
+    args.page_size,
+)
     except ConverterError as exc:
         print(f"Error: {exc}", file=sys.stderr)
         return 1
