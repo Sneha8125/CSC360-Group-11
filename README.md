@@ -6,7 +6,7 @@ as its only dependency. Works on Windows, Linux and macOS.
 
 ## Demo
 
-### 1. Application Output
+### Application Output
 ![Application Output](screenshots/Single-image.png)
 
 ## Features
@@ -90,6 +90,10 @@ Error: Output file 'abc.pdf' already exists. Use --overwrite to replace it.
 ```
 
 The exit code is `0` on success and `1` on any error, so the tool can be used in scripts.
+
+### Error Handling
+![Error Handling](screenshots/Error-handling.png)
+
 
 ## Project structure
 
