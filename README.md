@@ -7,7 +7,7 @@ as its only dependency. Works on Windows, Linux and macOS.
 ## Demo
 
 ### 1. Application Output
-![Application Output](screenshots/Single Image.png)
+![Application Output](screenshots/Single-image.png)
 
 ## Features
 
