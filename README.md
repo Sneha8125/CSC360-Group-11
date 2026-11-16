@@ -107,6 +107,7 @@ Image-to-PDF-Converter/
 ├── README.md
 ├── .gitignore
 ├── input/               # sample images (abc.png, sample.jpg)
+├── screenshots/         # output screenshots (Error-handling.png, Help.png)
 ├── output/              # sample results (abc.pdf, converted.pdf)
 └── tests/               # unit + end-to-end tests
 ```
