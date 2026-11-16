@@ -6,8 +6,11 @@ as its only dependency. Works on Windows, Linux and macOS.
 
 ## Demo
 
-### Application Output
+### Single Image 
 ![Application Output](screenshots/Single-image.png)
+
+### Multiple Images
+![Application Output](screenshots/Multiple-images.png)
 
 ## Features
 
