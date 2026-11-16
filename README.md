@@ -4,6 +4,11 @@ A lightweight, GUI-free command-line tool that converts one or many images into
 a PDF document. Written in Python 3 with [Pillow](https://python-pillow.org/)
 as its only dependency. Works on Windows, Linux and macOS.
 
+## Demo
+
+### 1. Application Output
+![Application Output](screenshots/Single Image.png)
+
 ## Features
 
 - Convert a single image (`abc.png` -> `abc.pdf`)
